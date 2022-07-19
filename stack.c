@@ -39,7 +39,7 @@ void display(){
     }
     else{
         for(int i=0;i<=top;i++){
-            printf("%d",x[i]);
+            printf("%d\t",x[i]);
         }
     }
 }
@@ -63,7 +63,7 @@ int main()
         printf("\n Value at top : %d",peek());
         break;
         case 4:
-        printf("\n Stack elements are :");
+        printf("\n Stack elements are : ");
         display();
         break;
         case 5:
