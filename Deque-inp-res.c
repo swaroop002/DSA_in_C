@@ -1,3 +1,9 @@
+/******************************************************************************
+
+        IMPLEMENTATION OF DOUBLE ENDED QUEUE WITH INPUT RESTRICTION
+
+*******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define size 10
