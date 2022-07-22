@@ -103,7 +103,7 @@ int main()
         case 5:
         exit(0);
         default:
-        printf("Invalid Option\n", );
+        printf("Invalid Option\n" );
     }
     }while(ch!=5);
     return 0;
