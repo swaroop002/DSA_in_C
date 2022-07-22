@@ -1,6 +1,6 @@
 /******************************************************************************
 
-                   IMPLEMENTATION OF SINGLY LINKED LIST
+                      IMPLEMENTATION OF LINKED LIST
 
 *******************************************************************************/
 
@@ -10,6 +10,7 @@ struct Node {
   int data;
   struct Node * next;
 };
+
 struct Node *start =NULL;
 
 void insert_node_front(int a){
@@ -41,6 +42,7 @@ void insert_node_rear(int a){
     t->next=n;
   }
 }
+
 int delete_node_front(){
   int del;
   struct Node *t =start;
@@ -60,6 +62,7 @@ int delete_node_front(){
   }
   return del;
 }
+
 int delete_node_rear(){
   int del;
   struct Node *t = start;
@@ -85,6 +88,7 @@ int delete_node_rear(){
   }
   return del;
 }
+
 void display(){
   struct Node *t = start;
   if (start==NULL){
@@ -117,7 +121,37 @@ void insert_node_at(int a,int pos){
   n->next=t;
 }
 }
+
 int delete_node_at(int pos){
+  int del=0;
+  if (pos==0){
+    del=delete_node_front();
+    return del;
+  }
+  else{
+  struct Node *t =start;
+  struct Node *p =NULL;
+  if (start==NULL){
+    printf("No Element in Linked List \n");
+  }
+  else{
+  for (int i = 0; i < pos; i++) {
+    p=t;
+    t=t->next;
+  }
+  del=t->data;
+  p->next=t->next;
+  free(t);
+  }
+}
+  return del;
+}
+
+int delete_node(int val){
+  if (start->data==val){
+    delete_node_front();
+  }
+  else{
   int del;
   struct Node *t =start;
   struct Node *p =NULL;
@@ -125,7 +159,7 @@ int delete_node_at(int pos){
     printf("No Element in Linked List \n");
   }
   else{
-  for (int i = 1; i < pos; i++) {
+  while(t->data!=val) {
     p=t;
     t=t->next;
   }
@@ -134,6 +168,7 @@ int delete_node_at(int pos){
   free(t);
   return del;
   }
+}
 }
 void search(int a){
   struct Node *t =start;
@@ -163,7 +198,7 @@ int main()
     printf("Linked List \n");
     do
     {
-    printf("\nEnter Your Choice \n 1 : Insert Node From Front \n 2 : Insert Node From Rear \n 3 : Insert Node at Position \n 4 : Delete Node From Front \n 5 : Delete Node From Rear \n 6 : Delete Node at Position \n 7 : Display List Elements \n 8 : Search for Element \n 9 : Exit\n");
+    printf("\nEnter Your Choice \n 1 : Insert Node From Front \n 2 : Insert Node From Rear \n 3 : Insert Node at Position \n 4 : Delete Node From Front \n 5 : Delete Node From Rear \n 6 : Delete Node at Position \n 7 : Delete Node \n 8 : Display List Elements \n 9 : Search for Element \n 10 : Exit\n");
     scanf("%d",&ch);
     switch(ch){
         case 1 :
@@ -195,18 +230,23 @@ int main()
         printf("\n Removed element from Position : %d",delete_node_at(pos));
         break;
         case 7:
-        display();
+        printf("Enter Element : ");
+        scanf("%d",&el);
+        printf("\n Removed element from Position : %d",delete_node(el));
         break;
         case 8:
+        display();
+        break;
+        case 9:
         printf("Enter Element to Search: ");
         scanf("%d",&el);
         search(el);
         break;
-        case 9:
+        case 10:
         exit(0);
         default:
         printf("Invalid Option\n" );
     }
-  }while(ch!=9);
+  }while(ch!=10);
     return 0;
 }
