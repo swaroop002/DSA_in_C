@@ -1,3 +1,9 @@
+/******************************************************************************
+
+    IMPLEMENTATION OF PRIORITY QUEUE WITH PRIORITY GIVEN TO LOWEST ELEMENT
+
+*******************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define size 10
