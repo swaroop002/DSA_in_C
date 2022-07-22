@@ -1,4 +1,8 @@
+/******************************************************************************
 
+        IMPLEMENTATION OF DOUBLE ENDED QUEUE WITH OUTPUT RESTRICTION
+
+*******************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #define size 10
